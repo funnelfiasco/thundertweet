@@ -32,7 +32,7 @@ if result.code == 304:
     print('Not updated in the last 10 minutes, skipping')
     sys.exit(1)
 
-observation = Metar.Metar(result.readlines()[1])
+observation = Metar.Metar(result.readlines()[1].decode('ascii'))
 print(observation.code)
 
 if 'thunder' in observation.present_weather():
